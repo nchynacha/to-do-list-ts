@@ -1,0 +1,304 @@
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e7acac url(/assets/falling-star.png) repeat fixed center;
+  overflow: hidden;
+  /* Prevent scrolling */
+  height: 100%;
+  margin: auto 15px;
+  padding: 0px;
+
+}
+
+
+
+.contents {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  /* Full viewport height */
+  overflow: auto;
+}
+
+
+/* Styling for the main container (white box with padding, border-radius, and shadow) */
+.container {
+  width: 100%;
+  max-width: 500px;
+  background: #FFFFFF;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #ef7c8e;
+  /* Pinkish color for text */
+}
+
+/* Task list container styling with a fixed height and scrollable content */
+.tasklist-container {
+  width: 100%;
+  max-width: 500px;
+  background: #FFFFFF;
+  padding: 20px;
+  height: 600px;
+  /* Fixed height */
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #ef7c8e;
+  overflow-y: auto;
+  /* Enables scrolling for task list */
+}
+
+/* Header styling */
+h1 {
+  text-align: center;
+  font-size: 24px;
+}
+
+/* Styling for the input container (flexbox layout with space between input and button) */
+.input-container {
+  display: flex;
+  gap: 10px;
+}
+
+/* Styling for the task input field */
+#taskInput {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ef7c8e;
+  border-radius: 5px;
+  color: #ef7c8e;
+}
+
+/* Styling for the 'Add Task' button */
+#addTaskBtn {
+  padding: 10px;
+  background: #ef7c8e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Task list (unordered list) styling */
+#taskList {
+  list-style: none;
+  padding: 0;
+}
+
+/* Styling for each task item in the list */
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(255, 230, 230);
+  /* Light pink background for tasks */
+  border-radius: 5px;
+  color: #ef7c8e;
+}
+
+/* Styling for task checkbox */
+.task-checkbox {
+  margin-right: 10px;
+}
+
+/* Delete button styling for tasks */
+.delete-btn {
+  background: #d9534f;
+  /* Red background for delete button */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for delete button */
+.delete-btn:hover {
+  background: #e7acac;
+  /* Lighter red on hover */
+}
+
+/* Placeholder text when no tasks are present */
+.no-task-placeholder {
+  font-size: 16px;
+  color: #d9534f;
+  text-align: center;
+  font-style: italic;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+/* Responsive styles for smaller screens */
+
+/* For screens up to 767px wide */
+@media (max-width: 1278px) {
+  .container {
+    width: 100%;
+    padding: 15px;
+    margin-right: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  #taskInput,
+  #addTaskBtn {
+    font-size: 14px;
+  }
+
+  /* Adjusting task item for smaller screens */
+
+
+  .task-checkbox {
+    margin-bottom: 10px;
+  }
+
+  .tasklist-container {
+    height: 600px;
+  }
+
+  .delete-btn {
+    position: static;
+    transform: none;
+    width: auto;
+    height: auto;
+  }
+}
+
+/* For screens up to 769px wide */
+@media (max-width: 769px) {
+  .contents {
+    flex-direction: column;
+    justify-content: start;
+    height: 100vh;
+    /* Full viewport height */
+    overflow: auto;
+    margin: 15px auto;
+  }
+
+  .container {
+    max-width: 500px;
+    margin: 0 0 15px 0;
+
+  }
+
+  .tasklist-container {
+    max-width: 500px;
+    height: 700px;
+
+    /* Adjusting task item for the smallest screens */
+    .task-item {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      margin-top: 10px;
+      justify-content: start;
+    }
+
+    .task-checkbox {
+      margin-right: 20px;
+    }
+
+    #taskInput {
+      color: #edd4d4;
+    }
+
+    /* Positioning delete button */
+    .task-item .delete-btn {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transform: translateX(100%);
+    }
+
+    /* When task item is swiped, show delete button */
+    .task-item.swiped .delete-btn {
+      transform: translateX(0);
+    }
+
+    /* Styling for delete button on small screens */
+    .delete-btn {
+      background: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+}
+
+/* For screens up to 479px wide */
+@media (max-width: 479px) {
+  .contents {
+    flex-direction: column;
+    justify-content: start;
+    height: 100vh;
+    /* Full viewport height */
+    overflow: auto;
+    margin: 15px auto;
+  }
+
+  .container {
+    max-width: 300px;
+    margin: 0 0 15px 0;
+
+  }
+
+  .tasklist-container {
+    max-width: 300px;
+    height: auto;
+
+    /* Adjusting task item for the smallest screens */
+    .task-item {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      margin-top: 10px;
+      justify-content: start;
+    }
+
+    .task-checkbox {
+      margin-right: 20px;
+    }
+
+    #taskInput {
+      color: #edd4d4;
+    }
+
+    /* Positioning delete button */
+    .task-item .delete-btn {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transform: translateX(100%);
+    }
+
+    /* When task item is swiped, show delete button */
+    .task-item.swiped .delete-btn {
+      transform: translateX(0);
+    }
+
+    /* Styling for delete button on small screens */
+    .delete-btn {
+      background: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+}
