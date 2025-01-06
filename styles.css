@@ -139,7 +139,7 @@ h1 {
 
 /* Responsive styles for smaller screens */
 
-/* For screens up to 767px wide */
+/* For screens up to 1278px wide */
 @media (max-width: 1278px) {
   .container {
     width: 100%;
