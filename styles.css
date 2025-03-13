@@ -4,7 +4,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #e7acac url(/assets/falling-star.png) repeat fixed center;
+  background: #e7acac url(.../assets/falling-star.png) repeat fixed center;
   overflow: hidden;
   /* Prevent scrolling */
   height: 100%;
